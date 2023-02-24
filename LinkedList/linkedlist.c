@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include<stdlib.h>
 
 typedef struct linked_list *LIST;
 typedef struct node *NODE;
@@ -17,7 +18,8 @@ struct linked_list
 
 LIST createList()
 {
-    LIST myList = (LIST)malloc(sizeof(*myList));
+    LIST myList;
+    myList = (LIST) malloc(sizeof(struct linked_list));
     myList->count = 0;
     myList->head = NULL;
     return myList;
@@ -92,5 +94,21 @@ void removeLast(LIST l) {
 
 int main()
 {
+    LIST l = createList();
+
+    for(int i=0;i<5;i++) {
+        NODE n=createNode(i);
+        insertFirst(l,n);
+    }
+
+    NODE temp=l->head;
+    NODE temp2=l->head;
+
+    while(temp->next!=NULL) {
+        temp=temp->next;
+    }
+
+    while(temp)
+
     return 0;
 }
